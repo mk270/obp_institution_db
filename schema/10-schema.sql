@@ -29,4 +29,3 @@ create table institution_relation (
   constraint no_self_referencing check (ir_parent_id <> ir_child_id)
 );
 
--- todo: do we nede a serial at all?
