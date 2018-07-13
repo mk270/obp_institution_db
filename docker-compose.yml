@@ -2,13 +2,12 @@ version: "3.5"
 
 services:
   obp_institution_db:
-    image: postgres:10
+    image: openbookpublishers/obp_institution_db:latest
     container_name: "obp_institution_db"
     restart: unless-stopped
     volumes:
       - institutiondb:/var/lib/postgresql/data
       - /etc/localtime:/etc/localtime:ro
-      - ./schema:/docker-entrypoint-initdb.d
     env_file:
       - db.env
 
