@@ -44,6 +44,13 @@ def add_uuid_and_country_code(data):
     return data
         
 
+def insert_into_country(data):
+    
+    processed_data = set([ ( str(data[x]["Country"]) , str(data[x]["Country-code"]) ) for x in range(len(data)) ])
+    query = """INSERT INTO country (country_name,country_code)
+                VALUES ( %s , %s ); """
+    cursor.executemany(query,processed_data)
+    conn.commit()
 
 conn = psycopg2.connect(database='obp_institutions',
                         user = 'obp',
