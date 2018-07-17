@@ -1,7 +1,11 @@
 
 CREATE TABLE country (
-  country_code char(2) PRIMARY KEY NOT NULL,
-  country_name text NOT NULL
+  country_code char(2) PRIMARY KEY NOT NULL
+);
+
+CREATE TABLE country_name (
+  country_name text PRIMARY KEY NOT NULL,
+  country_code char(2) NOT NULL REFERENCES country(country_code)
 );
 
 CREATE TABLE institution (
