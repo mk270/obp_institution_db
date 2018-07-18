@@ -20,7 +20,8 @@ CREATE TABLE ip_range (
 );
 
 CREATE TABLE contact (
-  contact_name text PRIMARY KEY NOT NULL,
+  contact_uuid uuid PRIMARY KEY NOT NULL,
+  contact_name text NOT NULL,
   contact_email_address text NULL,
   contact_notes text NULL,
   institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
