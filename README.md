@@ -2,6 +2,11 @@
 
 ## Instructions
 
-Create an environment file called `db.env` from `db.env.example`.
-Run `docker-compose up`.
-You may access the database directly using `docker exec -itu postgres obp_institution_db psql -d obp_institutions`
+Start a database instance:
+`
+docker run --name obp_institutions_db -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=obp_institutions -e POSTGRES_USER=obp -d openbookpublishers/obp_institution_db
+`
+
+## Schema
+![Institutions ERD](./institutions.png)
+
