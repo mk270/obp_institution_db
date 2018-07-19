@@ -15,7 +15,7 @@ CREATE TABLE institution (
 );
 
 CREATE TABLE ip_range (
-  ip_range_value cidr PRIMARY KEY NOT NULL,
+  ip_range_value inet PRIMARY KEY NOT NULL,
   institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
 );
 
