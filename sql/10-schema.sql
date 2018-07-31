@@ -11,7 +11,8 @@ CREATE TABLE country_name (
 CREATE TABLE institution (
   institution_uuid uuid PRIMARY KEY NOT NULL,
   institution_name text NOT NULL,
-  institution_country_code char(2) NOT NULL REFERENCES country(country_code)
+  institution_country_code char(2) NOT NULL REFERENCES country(country_code),
+  institution_notes text NULL
 );
 
 CREATE TABLE ip_range (
