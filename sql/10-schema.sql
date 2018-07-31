@@ -28,7 +28,7 @@ CREATE TABLE contact (
   contact_email_address text NULL,
   contact_notes text NULL,
   contact_created_at timestamp with time zone NOT NULL,
-  contact_updated_at timestamp with time zone NOT NULL
+  contact_updated_at timestamp with time zone NOT NULL,
   institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
 );
 
