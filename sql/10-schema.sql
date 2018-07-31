@@ -1,4 +1,3 @@
-
 CREATE TABLE country (
   country_code char(2) PRIMARY KEY NOT NULL
 );
@@ -12,11 +11,14 @@ CREATE TABLE institution (
   institution_uuid uuid PRIMARY KEY NOT NULL,
   institution_name text NOT NULL,
   institution_country_code char(2) NOT NULL REFERENCES country(country_code),
+  institution_created_at timestamp with time zone NOT NULL,
+  institution_updated_at timestamp with time zone NOT NULL,
   institution_notes text NULL
 );
 
 CREATE TABLE ip_range (
   ip_range_value inet PRIMARY KEY NOT NULL,
+  ip_range_created_at timestamp with time zone NOT NULL,
   institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
 );
 
@@ -25,6 +27,8 @@ CREATE TABLE contact (
   contact_name text NOT NULL,
   contact_email_address text NULL,
   contact_notes text NULL,
+  contact_created_at timestamp with time zone NOT NULL,
+  contact_updated_at timestamp with time zone NOT NULL
   institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
 );
 
