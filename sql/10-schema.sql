@@ -19,7 +19,7 @@ CREATE TABLE institution (
 CREATE TABLE ip_range (
   ip_range_value inet PRIMARY KEY NOT NULL,
   ip_range_created_at timestamp with time zone NOT NULL,
-  institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
+  institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid) ON DELETE CASCADE
 );
 
 CREATE TABLE contact (
@@ -29,12 +29,12 @@ CREATE TABLE contact (
   contact_notes text NULL,
   contact_created_at timestamp with time zone NOT NULL,
   contact_updated_at timestamp with time zone NOT NULL,
-  institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid)
+  institution_uuid uuid NOT NULL REFERENCES institution(institution_uuid) ON DELETE CASCADE
 );
 
 CREATE TABLE institution_relation (
-  ir_parent_id uuid NOT NULL REFERENCES institution(institution_uuid),
-  ir_child_id uuid NOT NULL REFERENCES institution(institution_uuid),
+  ir_parent_id uuid NOT NULL REFERENCES institution(institution_uuid) ON DELETE CASCADE,
+  ir_child_id uuid NOT NULL REFERENCES institution(institution_uuid) ON DELETE CASCADE,
   PRIMARY KEY (ir_parent_id, ir_child_id),
   CONSTRAINT no_self_referencing CHECK (ir_parent_id <> ir_child_id)
 );
